@@ -2,6 +2,9 @@
 
 ### Technologies
 ### RouterModule (forRoot + forChild) + loadCHildren + children + pathMatch
+### ActivatedRouter + Router
+### environments file + custom pipes (@Pipe)
+### pipe observable (catchError + swithMap + takeUntil)
 
 ### START UP
 ### 1. execute on terminal
