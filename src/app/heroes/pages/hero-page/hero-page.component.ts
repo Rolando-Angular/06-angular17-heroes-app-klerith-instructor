@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject, switchMap, takeUntil } from 'rxjs';
+import { delay, Subject, switchMap, takeUntil } from 'rxjs';
 import { Hero } from '../../interfaces/hero.interface';
 
 @Component({
