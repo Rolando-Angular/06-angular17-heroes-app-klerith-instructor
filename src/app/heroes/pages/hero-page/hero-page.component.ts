@@ -37,4 +37,8 @@ export class HeroPageComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
+  public goBack(): void {
+    this.router.navigateByUrl('/heroes/list')
+  }
+
 }
