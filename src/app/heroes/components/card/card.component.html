@@ -10,7 +10,7 @@
       <strong>Primera aparición</strong> {{hero.first_appearance}}
       <br>
       <mat-chip-listbox>
-        @for(name of hero.characters.split(',') | slice:0:3; track name) {
+        @for(name of hero.characters!.split(',') | slice:0:3; track name) {
         <mat-chip>
           {{name}}
         </mat-chip>

@@ -32,7 +32,7 @@ export class SearchPageComponent {
     if (!this.selectedHero) {
       return;
     }
-    this.searchInput.setValue(this.selectedHero.superhero);
+    this.searchInput.setValue(this.selectedHero.superhero!);
   }
 
 }
