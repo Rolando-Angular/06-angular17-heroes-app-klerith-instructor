@@ -6,7 +6,7 @@
 ### ActivatedRouter + Router
 ### environments file + custom pipes (@Pipe)
 ### pipe observable (catchError + swithMap + takeUntil)
-### ReactiveFormModule + FormControl
+### ReactiveFormModule + FormControl + FormGroup + formControlName
 ### @if against *ngIf
 ### @for against *ngFor
 
