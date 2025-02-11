@@ -1,9 +1,10 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 import { Subject, switchMap, takeUntil } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-page',
@@ -43,6 +44,7 @@ export class NewPageComponent implements OnInit, OnDestroy {
     private heroesService: HeroesService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private snackbar: MatSnackBar,
   ) { }
 
   public ngOnInit(): void {
@@ -68,7 +70,7 @@ export class NewPageComponent implements OnInit, OnDestroy {
           takeUntil(this.destroy$)
         )
         .subscribe(hero => {
-          // TODO: mostrar snackbar
+          this.showSnakcbar(`${hero.superhero} updated!`);
         });
       return;
     }
@@ -78,10 +80,16 @@ export class NewPageComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe(hero => {
-        // TODO: mostrar snackbar y navegar a /heroes/edit/hero.id
+        this.showSnakcbar(`${hero.superhero} created!`),
+          this.router.navigate(['/heroes/edit', hero.id]);
       })
   }
 
+  private showSnakcbar(message: string): void {
+    this.snackbar.open(message, 'done', {
+      duration: 2500,
+    });
+  }
 
   public ngOnDestroy(): void {
     this.destroy$.next();
