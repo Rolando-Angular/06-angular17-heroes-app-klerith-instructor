@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Publisher } from '../../interfaces/hero.interface';
+import { Hero, Publisher } from '../../interfaces/hero.interface';
+import { HeroesService } from '../../services/heroes.service';
+import { Subject, switchMap, takeUntil } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-page',
   templateUrl: './new-page.component.html',
   styles: ``
 })
-export class NewPageComponent {
+export class NewPageComponent implements OnInit, OnDestroy {
 
   public heroForm = new FormGroup({
     id: new FormControl<string>(''),
@@ -30,11 +33,59 @@ export class NewPageComponent {
     }
   ]
 
+  public get currentHero(): Hero {
+    return this.heroForm.value as Hero;
+  }
+
+  private destroy$ = new Subject<void>();
+
+  constructor(
+    private heroesService: HeroesService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+  ) { }
+
+  public ngOnInit(): void {
+    if (!this.router.url.includes('edit')) return;
+    this.activatedRoute.params
+      .pipe(
+        switchMap(({ id }) => this.heroesService.getHeroeById(id)),
+      )
+      .subscribe(hero => {
+        if (!hero) {
+          this.router.navigateByUrl('/');
+          return;
+        }
+        this.heroForm.reset({ ...hero });
+      });
+  }
+
   public onSubmit(): void {
-    console.log({
-      formIsValid: this.heroForm.valid,
-      value: this.heroForm.value,
-    });
+    if (this.heroForm.invalid) return;
+    if (this.currentHero.id) {
+      this.heroesService.updateHero(this.currentHero)
+        .pipe(
+          takeUntil(this.destroy$)
+        )
+        .subscribe(hero => {
+          // TODO: mostrar snackbar
+        });
+      return;
+    }
+    // this.heroesService.updateHero(this.heroForm.value)
+    this.heroesService.addHero(this.currentHero)
+      .pipe(
+        takeUntil(this.destroy$)
+      )
+      .subscribe(hero => {
+        // TODO: mostrar snackbar y navegar a /heroes/edit/hero.id
+      })
+  }
+
+
+  public ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
 }

@@ -13,7 +13,8 @@
       "publisher": "DC Comics",
       "alter_ego": "Kal-El",
       "first_appearance": "Action Comics #1",
-      "characters": "Kal-El"
+      "characters": "Kal-El",
+      "alt_img": "https://media.gq.com/photos/66396f5cacf68e761c27992d/2:3/w_900,h_1350,c_limit/441022279_1116667176262879_6364642826018633585_n.jpg"
     },
     {
       "id": "dc-flash",
@@ -166,6 +167,15 @@
       "alter_ego": "Bruce Wayne",
       "first_appearance": "The arkham city",
       "characters": "Bruce Wayne"
+    },
+    {
+      "id": "td56_D8",
+      "superhero": "Spongebob",
+      "publisher": "DC Comics",
+      "alter_ego": "Strider",
+      "first_appearance": "Comic Udemy 2025 #2",
+      "characters": "Spongebob",
+      "alt_img": "https://nickelodeonuniverse.com/wp-content/uploads/Spongebob.png"
     }
   ]
 }
