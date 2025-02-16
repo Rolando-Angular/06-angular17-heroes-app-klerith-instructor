@@ -1,3 +1,3 @@
 export const environments = {
-  baseUrl: 'https://jsonplaceholder.typicode.com',
+  baseUrl: 'https://node-heroes-app-klerith-instructor-json.onrender.com',
 }
