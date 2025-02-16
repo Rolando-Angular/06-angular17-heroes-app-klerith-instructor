@@ -11,7 +11,7 @@
     "test": "ng test",
     "json:server": "json-server --watch data/db.json",
     "delete:docs": "del docs",
-    "copy:dist": "copyfiles --flat dist/heroes-app/browser/* ./docs"
+    "copy:dist": "copyfiles -u 3 dist/heroes-app/browser/**/* ./docs"
   },
   "private": true,
   "dependencies": {
