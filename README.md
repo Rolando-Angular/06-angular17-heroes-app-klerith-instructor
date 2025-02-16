@@ -9,6 +9,7 @@
 ### ReactiveFormModule + FormControl + FormGroup + formControlName
 ### @if against *ngIf
 ### @for against *ngFor
+### Auth Guard (canMatchFn, canActivateFn)
 
 ### START UP
 ### 1. execute on terminal
