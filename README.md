@@ -30,3 +30,5 @@ npm install json-server@0.17.4 -D
 npx json-server --watch data/db.json
 ```
 
+The project has been deployed on github pages (Link)
+### https://rolando-angular.github.io/angular-heroes-app-klerith-instructor
