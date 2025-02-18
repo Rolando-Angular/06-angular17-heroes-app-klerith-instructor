@@ -3,10 +3,11 @@
 ### Technologies
 ### Angular Material
 ### RouterModule (forRoot + forChild) + loadCHildren + children + pathMatch
+### navigate + navigateByurl + createUrlTree + routerLink
 ### ActivatedRouter + Router
-### environments file + custom pipes (@Pipe)
+### environments file + custom pipes (@Pipe + PipeTrasnform)
 ### pipe observable (catchError + swithMap + takeUntil)
-### ReactiveFormModule + FormControl + FormGroup + formControlName
+### ReactiveFormsModule + FormControl + FormGroup + formControlName
 ### @if against *ngIf
 ### @for against *ngFor
 ### Auth Guard (canMatchFn, canActivateFn)
