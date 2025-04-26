@@ -36,3 +36,6 @@ npx json-server --watch data/db.json
 
 ### DEPLOYED ON GITHUB PAGES
 https://rolando-angular.github.io/06-angular17-heroes-app-klerith-instructor
+
+Before visiting Github page url, you must go to this page and wait for it to load correctly.
+https://node-heroes-app-klerith-instructor-json.onrender.com/
